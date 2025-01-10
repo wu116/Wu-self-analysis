@@ -19,6 +19,7 @@ my $gene_id;
 # 逐行读取GFF3文件
 while (my $line = <$in>) {
     next if $line =~ /^#/;  # 跳过注释行
+    next if $line =~ /^$/;  # 跳过空行
     chomp $line;
     my @fields = split(/\t/, $line);
     my ($feature, $start, $end, $strand, $attributes) = @fields[2, 3, 4, 6, 8];
